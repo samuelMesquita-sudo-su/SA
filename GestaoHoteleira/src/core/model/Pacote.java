@@ -1,32 +1,50 @@
 package core.model;
 
+import base.util.Utilidades;
+
 import java.util.Objects;
 
 public class Pacote {
 
     // Atributos
-    private Long id;                // Obrigatório
-    private Acomodacao acomodacao;  // Obrigatório
-    private String nome;            // Obrigatório
-    private Integer qtdDiarias;     // Obrigatório
-    private Double valorTotal;      // Opcional
+    private Long id; // Identificador
+    private String nome; // Obrigatório
+    private Acomodacao acomodacao; // Obrigatório
+    private Integer qtdDiarias; // Obrigatório
+    private Double valorTotal; // Opcional
 
-    public Pacote(){}
+    // Construtor vazio
+    public Pacote() {}
 
-    public Pacote(Acomodacao acomodacao, String nome, Integer qtdDiarias, Double valorTotal) {
-        this.acomodacao = acomodacao;
+    // Construtor sem o id
+    public Pacote(
+        String nome,
+        Acomodacao acomodacao,
+        Integer qtdDiarias,
+        Double valorTotal
+    ) {
         this.nome = nome;
+        this.acomodacao = acomodacao;
         this.qtdDiarias = qtdDiarias;
         this.valorTotal = valorTotal;
     }
 
-    public Pacote(Long id, Acomodacao acomodacao, String nome, Integer qtdDiarias, Double valorTotal) {
+    // Construtor com todos os atributos
+    public Pacote(
+        Long id,
+        String nome,
+        Acomodacao acomodacao,
+        Integer qtdDiarias,
+        Double valorTotal
+    ) {
         this.id = id;
-        this.acomodacao = acomodacao;
         this.nome = nome;
+        this.acomodacao = acomodacao;
         this.qtdDiarias = qtdDiarias;
         this.valorTotal = valorTotal;
     }
+
+    // Getters e Setters
 
     public Long getId() {
         return id;
@@ -36,20 +54,20 @@ public class Pacote {
         this.id = id;
     }
 
-    public Acomodacao getAcomodacao() {
-        return acomodacao;
-    }
-
-    public void setAcomodacao(Acomodacao acomodacao) {
-        this.acomodacao = acomodacao;
-    }
-
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Acomodacao getAcomodacao() {
+        return acomodacao;
+    }
+
+    public void setAcomodacao(Acomodacao acomodacao) {
+        this.acomodacao = acomodacao;
     }
 
     public Integer getQtdDiarias() {
@@ -68,15 +86,15 @@ public class Pacote {
         this.valorTotal = valorTotal;
     }
 
+    // Outros métodos
+
     @Override
     public String toString() {
-        return "Pacote{ " +
-                "   id=" + id +
-                " |     acomodacao=" + acomodacao +
-                " |     nome='" + nome + '\'' +
-                " |     qtdDiarias=" + qtdDiarias +
-                " |     valorTotal=" + valorTotal +
-                "   }";
+        return "Id: " + id
+           +  " | Nome: " + nome
+           +  " | Acomodação: " + acomodacao.getId() + " - " + acomodacao.getNome()
+           +  " | Quantidade de diárias: " + qtdDiarias
+           +  " | Valor total: " + Utilidades.formatarValorMonetario(valorTotal);
     }
 
     @Override
@@ -90,4 +108,5 @@ public class Pacote {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
 }

@@ -1,24 +1,32 @@
 package core.model;
 
+import base.util.Utilidades;
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class Pessoa {
 
-    /// Atributos ///
-    private Long idPessoa;              // Obrigatório
-    private String nomeCompleto;        // Obrigatório
-    private LocalDate dataNascimento;   // Obrigatório
-    private String documento;           // Obrigatório
-    private String pais;                // Opcional
-    private String estado;              // Opcional
-    private String cidade;              // Opcional
+    // Atributos
+    private Long idPessoa; // Identificador
+    private String nomeCompleto; // Obrigatório
+    private LocalDate dataNascimento; // Obrigatório
+    private String documento; // Obrigatório
+    private String pais; // Opcional
+    private String estado; // Opcional
+    private String cidade; // Opcional
 
     // Construtor vazio
-    public Pessoa(){}
+    public Pessoa() {}
 
-    // Construtor sem id
-    public Pessoa(String nomeCompleto, LocalDate dataNascimento, String documento, String pais, String estado, String cidade) {
+    // Construtor sem o id
+    public Pessoa(
+        String nomeCompleto,
+        LocalDate dataNascimento,
+        String documento,
+        String pais,
+        String estado,
+        String cidade
+    ) {
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
         this.documento = documento;
@@ -27,8 +35,16 @@ public class Pessoa {
         this.cidade = cidade;
     }
 
-    // Construtor completo
-    public Pessoa(Long idPessoa, String nomeCompleto, LocalDate dataNascimento, String documento, String pais, String estado, String cidade) {
+    // Construtor com todos os atributos
+    public Pessoa(
+            Long idPessoa,
+            String nomeCompleto,
+            LocalDate dataNascimento,
+            String documento,
+            String pais,
+            String estado,
+            String cidade
+    ) {
         this.idPessoa = idPessoa;
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
@@ -38,12 +54,13 @@ public class Pessoa {
         this.cidade = cidade;
     }
 
-    // Get´s & Set´s
-    public Long getIdPessoa() {
+    // Getters e Setters
+
+    public Long getId() {
         return idPessoa;
     }
 
-    public void setIdPessoa(Long idPessoa) {
+    public void setId(Long id) {
         this.idPessoa = idPessoa;
     }
 
@@ -95,28 +112,32 @@ public class Pessoa {
         this.cidade = cidade;
     }
 
+    // Outros métodos
+
     @Override
     public String toString() {
-        return "ID Pessoa{ " +
-                "   idPessoa=" + idPessoa +
-                " |     Nome completo='" + nomeCompleto + '\'' +
-                " |     Data nascimento=" + dataNascimento +
-                " |     Documento='" + documento + '\'' +
-                " |     País='" + pais + '\'' +
-                " |     Estado='" + estado + '\'' +
-                " |     Cidade='" + cidade + '\'' +
-                "   }";
+        return "Id: " + idPessoa +
+            " | Nome completo: " + nomeCompleto +
+            " | Data de nascimento: " + Utilidades.formatarDataBR(dataNascimento) +
+            " | Documento: " + documento +
+            " | País: " + pais +
+            " | Estado: " + estado +
+            " | Cidade: " + cidade;
     }
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Pessoa pessoa = (Pessoa) o;
+
         return Objects.equals(idPessoa, pessoa.idPessoa);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(idPessoa);
+        return idPessoa != null ? idPessoa.hashCode() : 0;
     }
+
 }

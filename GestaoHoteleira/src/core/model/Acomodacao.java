@@ -1,20 +1,30 @@
 package core.model;
 
+import base.util.Utilidades;
+
 import java.util.Objects;
 
 public class Acomodacao {
 
     // Atributos
-    private Long id;                                // Obrigatório
-    private String nome;                            // Obrigatíorio
-    private Double valorDiaria;                     // Obrigatíorio
-    private Integer limiteHospedes;                 // Obrigatíorio
-    private String descricao;                       // Opcional
-    private Funcionario funcionarioResponsavel;     // Obrigatório
+    private Long id; // Identificador
+    private String nome; // Obrigatório
+    private Double valorDiaria; // Obrigatório
+    private Integer limiteHospedes; // Obrigatório
+    private String descricao; // Opcional
+    private Funcionario funcionarioResponsavel; // Obrigatório
 
-    public Acomodacao(){}
+    // Construtor vazio
+    public Acomodacao() {}
 
-    public Acomodacao(String nome, Double valorDiaria, Integer limiteHospedes, String descricao, Funcionario funcionarioResponsavel) {
+    // Construtor sem o id
+    public Acomodacao(
+        String nome,
+        Double valorDiaria,
+        Integer limiteHospedes,
+        String descricao,
+        Funcionario funcionarioResponsavel
+    ) {
         this.nome = nome;
         this.valorDiaria = valorDiaria;
         this.limiteHospedes = limiteHospedes;
@@ -22,7 +32,15 @@ public class Acomodacao {
         this.funcionarioResponsavel = funcionarioResponsavel;
     }
 
-    public Acomodacao(Long id, String nome, Double valorDiaria, Integer limiteHospedes, String descricao, Funcionario funcionarioResponsavel) {
+    // Construtor com todos os atributos
+    public Acomodacao(
+        Long id,
+        String nome,
+        Double valorDiaria,
+        Integer limiteHospedes,
+        String descricao,
+        Funcionario funcionarioResponsavel
+    ) {
         this.id = id;
         this.nome = nome;
         this.valorDiaria = valorDiaria;
@@ -30,6 +48,8 @@ public class Acomodacao {
         this.descricao = descricao;
         this.funcionarioResponsavel = funcionarioResponsavel;
     }
+
+    // Getters e Setters
 
     public Long getId() {
         return id;
@@ -79,16 +99,16 @@ public class Acomodacao {
         this.funcionarioResponsavel = funcionarioResponsavel;
     }
 
+    // Outros métodos
+
     @Override
     public String toString() {
-        return "Acomodacao{ " +
-                "   id=" + id +
-                " |     nome='" + nome + '\'' +
-                " |     valorDiaria=" + valorDiaria +
-                " |     limiteHospedes=" + limiteHospedes +
-                " |     descricao='" + descricao + '\'' +
-                " |     funcionarioResponsavel=" + funcionarioResponsavel +
-                "   }";
+        return "Id: " + id
+            + " | Nome: " + nome
+            + " | Valor da diária: " + valorDiaria
+            + " | Limite de hóspedes: " + limiteHospedes
+            + " | Descricão: " + descricao
+            + " | Funcionário responsável: " + funcionarioResponsavel.getId() + " - " + funcionarioResponsavel.getNomeCompleto();
     }
 
     @Override
@@ -102,4 +122,6 @@ public class Acomodacao {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
 }
+

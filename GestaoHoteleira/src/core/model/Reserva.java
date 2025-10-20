@@ -1,36 +1,61 @@
 package core.model;
 
+import base.util.Utilidades;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class Reserva {
 
     // Atributos
-    private Long id;                    // Obrigatório
+    private Long id; // Identificador
+    private LocalDate dataInicio; // Obrigatório
+    private LocalDate dataFim; // Obrigatório
+    private Acomodacao acomodacao; // Obrigatório
     private Cliente clienteResponsavel; // Obrigatório
-    private LocalDate dataInicio;       // Obrigatório
-    private LocalDate dataFim;          // Obrigatório
-    private Double valorTotal;          // Opcional
-    private Integer qtdHospedes;        // Obrigatório
+    private Integer qtdHospedes; // Obrigatório
+    private Double valorTotal; // Opcional
 
-    public Reserva(){}
+    // Construtor vazio
+    public Reserva() {}
 
-    public Reserva(Cliente clienteResponsavel, LocalDate dataInicio, LocalDate dataFim, Double valorTotal, Integer qtdHospedes) {
-        this.clienteResponsavel = clienteResponsavel;
+    // Construtor sem o id
+    public Reserva(
+        LocalDate dataInicio,
+        LocalDate dataFim,
+        Acomodacao acomodacao,
+        Cliente clienteResponsavel,
+        Integer qtdHospedes,
+        Double valorTotal
+    ) {
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        this.valorTotal = valorTotal;
+        this.acomodacao = acomodacao;
+        this.clienteResponsavel = clienteResponsavel;
         this.qtdHospedes = qtdHospedes;
+        this.valorTotal = valorTotal;
     }
 
-    public Reserva(Long id, Cliente clienteResponsavel, LocalDate dataInicio, LocalDate dataFim, Double valorTotal, Integer qtdHospedes) {
+    // Construtor com todos os atributos
+    public Reserva(
+        Long id,
+        LocalDate dataInicio,
+        LocalDate dataFim,
+        Acomodacao acomodacao,
+        Cliente clienteResponsavel,
+        Integer qtdHospedes,
+        Double valorTotal
+    ) {
         this.id = id;
-        this.clienteResponsavel = clienteResponsavel;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        this.valorTotal = valorTotal;
+        this.acomodacao = acomodacao;
+        this.clienteResponsavel = clienteResponsavel;
         this.qtdHospedes = qtdHospedes;
+        this.valorTotal = valorTotal;
     }
+
+    // Getters e Setters
 
     public Long getId() {
         return id;
@@ -38,14 +63,6 @@ public class Reserva {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Cliente getClienteResponsavel() {
-        return clienteResponsavel;
-    }
-
-    public void setClienteResponsavel(Cliente clienteResponsavel) {
-        this.clienteResponsavel = clienteResponsavel;
     }
 
     public LocalDate getDataInicio() {
@@ -64,12 +81,20 @@ public class Reserva {
         this.dataFim = dataFim;
     }
 
-    public Double getValorTotal() {
-        return valorTotal;
+    public Acomodacao getAcomodacao() {
+        return acomodacao;
     }
 
-    public void setValorTotal(Double valorTotal) {
-        this.valorTotal = valorTotal;
+    public void setAcomodacao(Acomodacao acomodacao) {
+        this.acomodacao = acomodacao;
+    }
+
+    public Cliente getClienteResponsavel() {
+        return clienteResponsavel;
+    }
+
+    public void setClienteResponsavel(Cliente clienteResponsavel) {
+        this.clienteResponsavel = clienteResponsavel;
     }
 
     public Integer getQtdHospedes() {
@@ -80,16 +105,25 @@ public class Reserva {
         this.qtdHospedes = qtdHospedes;
     }
 
+    public Double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    // Outros métodos
+
     @Override
     public String toString() {
-        return "Reserva{ " +
-                "   id=" + id +
-                " |     clienteResponsavel=" + clienteResponsavel +
-                " |     dataInicio=" + dataInicio +
-                " |     dataFim=" + dataFim +
-                " |     valorTotal=" + valorTotal +
-                " |     qtdHospedes=" + qtdHospedes +
-                "   }";
+        return "Id: " + id
+            +  " | Data início: " + Utilidades.formatarDataBR(dataInicio)
+            +  " | Data fim: " + Utilidades.formatarDataBR(dataFim)
+            +  " | Acomodação: " + acomodacao.getId() + " - " + acomodacao.getNome()
+            +  " | Cliente responsável: " + clienteResponsavel.getId() + " - " + clienteResponsavel.getNomeCompleto()
+            +  " | Quantidade de hóspedes: " + qtdHospedes
+            +  " | Valor total: " + Utilidades.formatarValorMonetario(valorTotal);
     }
 
     @Override
@@ -103,4 +137,5 @@ public class Reserva {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
 }
