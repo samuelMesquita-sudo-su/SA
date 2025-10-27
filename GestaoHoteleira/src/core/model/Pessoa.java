@@ -56,11 +56,11 @@ public class Pessoa {
 
     // Getters e Setters
 
-    public Long getId() {
+    public Long getIdPessoa() {
         return idPessoa;
     }
 
-    public void setId(Long id) {
+    public void setIdPessoa(Long id) {
         this.idPessoa = idPessoa;
     }
 

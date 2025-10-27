@@ -52,12 +52,10 @@ public class Funcionario extends Pessoa {
 
     // Getters e Setters
 
-    @Override
     public Long getId() {
         return id;
     }
 
-    @Override
     public void setId(Long id) {
         this.id = id;
     }

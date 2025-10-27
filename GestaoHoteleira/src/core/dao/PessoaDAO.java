@@ -84,7 +84,7 @@ public class PessoaDAO implements DAO<Pessoa> {
             preparacao.setString(4, pessoa.getPais());
             preparacao.setString(5, pessoa.getEstado());
             preparacao.setString(6, pessoa.getCidade());
-            preparacao.setLong(7, pessoa.getId());
+            preparacao.setLong(7, pessoa.getIdPessoa());
             return preparacao.executeUpdate() > 0;
 
         } catch (Exception e) {
@@ -191,13 +191,13 @@ public class PessoaDAO implements DAO<Pessoa> {
 
             if(resultado.next()) {
                 return new Pessoa(
-                        resultado.getLong("id"),
-                        resultado.getString("nome_completo"),
-                        resultado.getDate("data_nascimento").toLocalDate(),
-                        resultado.getString("documento"),
-                        resultado.getString("pais"),
-                        resultado.getString("estado"),
-                        resultado.getString("cidade")
+                    resultado.getLong("id"),
+                    resultado.getString("nome_completo"),
+                    resultado.getDate("data_nascimento").toLocalDate(),
+                    resultado.getString("documento"),
+                    resultado.getString("pais"),
+                    resultado.getString("estado"),
+                    resultado.getString("cidade")
                 );
             } else {
                 return null;

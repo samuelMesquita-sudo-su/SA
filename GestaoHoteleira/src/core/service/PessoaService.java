@@ -153,7 +153,7 @@ public class PessoaService {
                     if(funcionalidade == Funcionalidade.ALTERAR) {
                         if(Utilidades.validarNumero(id)) {
                             Long idNumerico = Long.parseLong(id);
-                            if(!pessoaDocumento.getId().equals(idNumerico)) erros += "\n- Documento já existente.";
+                            if(!pessoaDocumento.getIdPessoa().equals(idNumerico)) erros += "\n- Documento já existente.";
                         }
                     } else {
                         erros += "\n- Documento já existente.";
