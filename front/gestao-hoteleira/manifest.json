@@ -1,0 +1,30 @@
+{
+  "background_color": "#695037",
+  "description": "Protótipo de Aplicação para Gestão Hoteleira.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Gestão Hoteleira",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Gestão Hoteleira",
+  "start_url": "/",
+  "theme_color": "#695037",
+  "categories": [],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "assets/imagens/192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/imagens/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [],
+  "lang": "pt"
+}
