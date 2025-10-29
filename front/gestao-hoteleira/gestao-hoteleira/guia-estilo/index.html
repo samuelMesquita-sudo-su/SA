@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Configurações inciais -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão Hoteleira - Guia de Estilo (Style Guide)</title>
+    <link rel="icon" href="/assets/imagens/favicon.png" type="image/png">
+
+    <!-- Integrações internas -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <script src="/assets/js/script.js"></script>
+
+    <!-- Integrações externos -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div id="loading">
+        <img src="/assets/imagens/loading.svg" alt="Carregando">
+    </div>
+
+    <div class="geral">
+        <div class="topo">
+            <div class="conteudo">
+                <a href="/">
+                    <span class="material-symbols-outlined icon-topo">Home</span>
+                </a>
+                <a href="/" class="link-logo">
+                    <img src="/assets/imagens/logo-branco.png" alt="Logotipo" class="logo-topo">
+                </a>
+                <a href="/">
+                    <span class="material-symbols-outlined icon-topo">Menu</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="meio">
+            <div class="conteudo modulo">
+                <h1>Guia de Estilo (Style Guide)</h1>
+
+                <div class="item-form">
+                    <label for="campo-01">
+                        Campo 01 
+                        <span class="campo-obrigatorio" title="Campo obrigatório">*</span>
+                    </label>
+                    <input type="text" id="campo-01" placeholder="Digite">
+                </div>
+
+                <div class="item-form">
+                    <label for="campo-02">Campo 02</label>
+                    <input type="number" id="campo-02" placeholder="Digite">
+                </div>
+
+                <div class="item-form">
+                    <label for="campo-03">Campo 03</label>
+                    <input type="date" id="campo-03" placeholder="Digite">
+                </div>
+
+                <div class="item-form">
+                    <label for="campo-04">Campo 04</label>
+                    <input type="file" id="campo-04">
+                </div>
+
+                <div class="item-form">
+                    <label for="campo-05">Campo 05</label>
+                    <textarea id="campo-05" rows="5"></textarea>
+                </div>
+
+                <div class="item-form">
+                    <label for="campo-06">Campo 06</label>
+                    <select id="campo-06">
+                        <option value="">Selecione</option>
+                        <option value="01">Opção 01</option>
+                        <option value="02">Opção 02</option>
+                        <option value="03">Opção 03</option>
+                    </select>
+                </div>
+
+                <div class="item-form item-check">
+                    <strong>Campo 07</strong>
+                    <div class="opcoes">
+                        <div>
+                            <input type="checkbox" id="campo-07-op-01" name="campo-07">
+                            <label for="campo-07-op-01">Opção 01</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="campo-07-op-02" name="campo-07">
+                            <label for="campo-07-op-02">Opção 02:</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="campo-07-op-03" name="campo-07">
+                            <label for="campo-07-op-03">Opção 03:</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-form item-check">
+                    <strong>Campo 08</strong>
+                    <div class="opcoes">
+                        <div>
+                            <input type="radio" id="campo-08-op-01" name="campo-08">
+                            <label for="campo-08-op-01">Opção 01</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="campo-08-op-02" name="campo-08">
+                            <label for="campo-08-op-02">Opção 02</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="campo-08-op-03" name="campo-08">
+                            <label for="campo-08-op-03">Opção 03</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="botoes">
+                    <button type="button" id="bt-01">Botão 01</button>
+                    <button type="reset" id="bt-02">Botão 02</button>
+                </div>
+
+                <div class="conteudo-tabela">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Coluna 01</th>
+                                <th>Coluna 02</th>
+                                <th>Coluna 03</th>
+                                <th>Coluna 04</th>
+                                <th>Coluna 05</th>
+                                <th>Coluna 06</th>
+                                <th>Coluna 07</th>
+                                <th>Coluna 08</th>
+                                <th>Coluna 09</th>
+                                <th class="col-acoes"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Coluna 01</td>
+                                <td>Coluna 02</td>
+                                <td>Coluna 03</td>
+                                <td>Coluna 04</td>
+                                <td>Coluna 05</td>
+                                <td>Coluna 06</td>
+                                <td>Coluna 07</td>
+                                <td>Coluna 08</td>
+                                <td>Coluna 09</td>
+                                <td class="col-acoes">
+                                    <button class="bt-tabela bt-editar" title="Editar">
+                                        <i class="ph ph-pencil"></i>
+                                    </button>
+                                    <button class="bt-tabela bt-excluir" title="Excluir">
+                                        <i class="ph ph-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Coluna 01</td>
+                                <td>Coluna 02</td>
+                                <td>Coluna 03</td>
+                                <td>Coluna 04</td>
+                                <td>Coluna 05</td>
+                                <td>Coluna 06</td>
+                                <td>Coluna 07</td>
+                                <td>Coluna 08</td>
+                                <td>Coluna 09</td>
+                                <td class="col-acoes">
+                                    <button class="bt-tabela bt-editar" title="Editar">
+                                        <i class="ph ph-pencil"></i>
+                                    </button>
+                                    <button class="bt-tabela bt-excluir" title="Excluir">
+                                        <i class="ph ph-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="10"><span id="total-registros">2</span> registros encontrados</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="rodape">
+            <div class="conteudo">
+                <p>© Protótipo de Aplicação para Gestão Hoteleira</p>
+                <p>Todos os direitos reservados</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

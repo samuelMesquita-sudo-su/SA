@@ -1,0 +1,391 @@
+/* Estilo principal */
+
+/* Configurações iniciais (variáveis) */
+:root {
+    --cor-principal: #695037;
+    --cor-secundaria: #886949;
+    --cor-clean: #d4d4d4;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Elementos */
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+p,
+a,
+span,
+strong,
+label,
+table {
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+input,
+textarea,
+select {
+    border: 1px solid var(--cor-clean);
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 10px;
+}
+
+input:focus,
+input:active,
+textarea:focus,
+textarea:active,
+select:focus,
+select:active {
+    border: 1px solid var(--cor-principal);
+}
+
+input[type=checkbox] {
+    border: 1px solid var(--cor-clean);
+    color: var(--cor-principal);
+    color-adjust: exact;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    -webkit-print-color-adjust: exact;
+    vertical-align: middle;
+}
+
+input[type=radio] {
+    border: 1px solid var(--cor-clean);
+    color-adjust: exact;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 9999px;
+    color: var(--cor-principal);
+    display: inline-block;
+    -webkit-print-color-adjust: exact;
+    vertical-align: middle;
+}
+
+input[type=checkbox]:checked,
+input[type=radio]:checked {
+    background-color: var(--cor-principal);
+    border-color: transparent
+}
+
+label {
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+.campo-obrigatorio {
+    color: red;
+}
+
+button {
+    background: var(--cor-principal);
+    color: #fff;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid var(--cor-principal);
+}
+
+button:hover {
+    background: var(--cor-secundaria);
+    border: 1px solid var(--cor-secundaria);
+}
+
+button:focus,
+button:active {
+    background: #fff;
+    border: 1px solid var(--cor-principal);
+    color: var(--cor-principal);
+}
+
+table {
+    width: 1024px;
+}
+
+table td,
+table th {
+    text-align: left;
+    border-bottom: 1px solid var(--cor-clean);
+    padding: 10px;
+}
+
+table tr:hover td {
+    background: #d4d4d43d;
+}
+
+tfoot td {
+    text-align: center;
+    border: none;
+}
+
+
+/* Classes */
+
+#loading {
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.8;
+    display: none;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+}
+
+.geral {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-txt-grande {
+    max-width: 200px;
+    overflow-wrap: break-word;
+}
+
+/* Topo */
+
+.topo {
+    display: flex;
+    background-color: var(--cor-principal);
+    padding: 10px 20px;
+}
+
+.topo .conteudo {
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.conteudo {
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.link-logo {
+    height: 100%;
+}
+
+.logo-topo {
+    max-height: 100%;
+}
+
+.icon-topo {
+    font-size: 40px !important;
+    color: #fff;
+}
+
+.topo {
+    display: flex;
+    background-color: var(--cor-principal);
+    padding: 10px 20px;
+}
+
+/* Meio */
+
+.meio {
+    display: flex;
+    padding: 20px;
+}
+
+.meio .conteudo {
+    min-height: calc(100vh - 172px);
+}
+
+.dashboard {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.opcoes-modulos {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.opcao-modulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    border: 1px solid var(--cor-principal);
+    border-radius: 10px;
+    padding: 5px;
+    text-decoration: none;
+    color: var(--cor-principal);
+    font-weight: bold;
+    justify-self: center;
+}
+
+.opcao-modulo:hover {
+    background: var(--cor-principal);
+    color: #fff;
+}
+
+.opcao-modulo:active {
+    background: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+    ;
+}
+
+.opcao-modulo .icon {
+    font-size: 50px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.opcao-modulo span {
+    text-align: center;
+}
+
+.modulo {
+    flex-direction: column;
+}
+
+.item-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.item-check .opcoes {
+    display: flex;
+    margin-top: 5px;
+}
+
+.item-check .opcoes div {
+    margin-right: 10px;
+}
+
+.item-check label {
+    font-weight: normal;
+}
+
+
+.botoes {
+    display: flex;
+    margin-top: 10px;
+}
+
+.botoes button {
+    margin-right: 10px;
+}
+
+#bt-cancelar {
+    display: none;
+}
+
+.conteudo-tabela {
+    width: 100%;
+    overflow: auto;
+    margin-top: 10px;
+}
+
+.col-acoes {
+    width: 56px;
+    text-align: center;
+}
+
+.bt-tabela {
+    font-size: 16px;
+    padding: 2px;
+    background: none;
+    border: none;
+    color: var(--cor-principal);
+    border: 1px solid transparent;
+    margin-right: 2px;
+}
+
+.bt-tabela:hover {
+    background: #fff;
+    border: 1px solid var(--cor-principal);
+}
+
+.bt-tabela:focus,
+.bt-tabela:active {
+    background: var(--cor-principal);
+    border: 1px solid var(--cor-principal);
+    color: #fff;
+}
+
+/* Rodapé */
+
+.rodape {
+    display: flex;
+    background-color: var(--cor-principal);
+    padding: 10px 20px;
+    color: #fff;
+    ;
+}
+
+.rodape .conteudo {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Responsividade */
+
+@media (min-width: 320px) {
+    body {
+        /* background-color: green; */
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        /* background-color: yellow; */
+    }
+
+    .opcoes-modulos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .opcao-modulo {
+        width: 200px;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        /* background-color: red; */
+    }
+
+    .conteudo {
+        width: 1024px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .opcoes-modulos {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .opcao-modulo {
+        width: 150px;
+    }
+}

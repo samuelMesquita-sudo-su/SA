@@ -1,0 +1,1 @@
+// Script relacionado ao módulo de funcionários
