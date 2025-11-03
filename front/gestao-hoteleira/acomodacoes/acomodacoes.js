@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
         let valorDiaria = document.querySelector('#campo-valor').value;         //obrigatório
         let limiteHospedes = document.querySelector('#campo-limite').value;     //obrigatório 
         let descricao = document.querySelector('#campo-descricao').value;       
-        let funconario = document.querySelector('#campo-func').value;           //obrigatório
+        let funcionario = document.querySelector('#campo-func').value;           //obrigatório
 
         //validacoes de campos
         if (nome == "") {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function(){
         } else if (limiteHospedes == "") {
             alert("Limite de hospedes é um campo obrigatório!");
             return;
-        } else if (funconario == ""){
+        } else if (funcionario == ""){
             alert("ID de funcionário é obrigatório!");
             return;
         }
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
             valorDiaria : valorDiaria,
             limiteHospedes : limiteHospedes,
             descricao: descricao,
-            funconario : funconario
+            funcionario : funcionario
         };
 
         //Altera ou insere uma posição em um array principal
@@ -79,8 +79,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
 function listar() {
     document.querySelector('table tbody').innerHTML = "";
-    document.querySelector('#total-registros').textContent = listaPessoas.length;
-    listaPessoas.forEach(function (objeto) {
+    document.querySelector('#total-registros').textContent = listaAcomodacao.length;
+    listaAcomodacao.forEach(function (objeto) {
         // Cria string html com os dados da lista
         let htmlAcoes = "";
         htmlAcoes += '<button class="bt-tabela bt-editar" title="Editar"><i class="ph ph-pencil"></i></button>';
@@ -88,13 +88,12 @@ function listar() {
 
         let htmlColunas = "";
         htmlColunas += "<td>" + objeto.id + "</td>";
-        htmlColunas += "<td>" + objeto.nomeCompleto + "</td>";
-        htmlColunas += "<td>" + objeto.dataNascimento + "</td>";
-        htmlColunas += "<td>" + objeto.documento + "</td>";
-        htmlColunas += "<td>" + objeto.pais + "</td>";
-        htmlColunas += "<td>" + objeto.estado + "</td>";
-        htmlColunas += "<td>" + objeto.cidade + "</td>";
-        htmlColunas += "<td>" + htmlAcoes + "</td>";
+        htmlColunas += "<td>" + objeto.nome + "</td>";
+        htmlColunas += "<td>" + objeto.valorDiaria + "</td>";
+        htmlColunas += "<td>" + objeto.limiteHospedes + "</td>";
+        htmlColunas += "<td>" + objeto.descricao + "</td>";
+        htmlColunas += "<td>" + objeto.funcionario + "</td>";
+        htmlColunas += "<td class='col-acoes'>" + htmlAcoes + "</td>";
 
         // Adiciona a linha ao corpo da tabela
         let htmlLinha = '<tr id="linha-' + objeto.id + '">' + htmlColunas + '</tr>';
@@ -113,21 +112,19 @@ function eventosListagem() {
             let linha = botao.parentNode.parentNode;
             let colunas = linha.getElementsByTagName('td');
             let id = colunas[0].textContent;
-            let nomeCompleto = colunas[1].textContent;
-            let dataNascimento = colunas[2].textContent;
-            let documento = colunas[3].textContent;
-            let pais = colunas[4].textContent;
-            let estado = colunas[5].textContent;
-            let cidade = colunas[6].textContent;
+            let nome = colunas[1].textContent;
+            let valorDiaria = colunas[2].textContent;
+            let limiteHospedes = colunas[3].textContent;
+            let descricao = colunas[4].textContent;
+            let funcionario = colunas[5].textContent;
 
             // Popula os campos do formulário
             document.querySelector('#campo-id').value = id;
-            document.querySelector('#campo-nome-completo').value = nomeCompleto;
-            document.querySelector('#campo-data-nascimento').value = formatarDataParaISO(dataNascimento);
-            document.querySelector('#campo-documento').value = documento;
-            document.querySelector('#campo-pais').value = pais;
-            document.querySelector('#campo-estado').value = estado;
-            document.querySelector('#campo-cidade').value = cidade;
+            document.querySelector('#campo-nome').value = nome;
+            document.querySelector('#campo-valor').value = valorDiaria;
+            document.querySelector('#campo-limite').value = limiteHospedes;
+            document.querySelector('#campo-descricao').value = descricao;
+            document.querySelector('#campo-func').value = funcionario;
 
             // Exibe botão de cancelar edição
             document.querySelector('#bt-cancelar').style.display = 'flex';
@@ -142,10 +139,10 @@ function eventosListagem() {
                 let linha = botao.parentNode.parentNode;
                 let id = linha.id.replace('linha-', '');
                 let indice = getIndiceListaPorId(id);
-                listaPessoas.splice(indice, 1);
+                listaAcomodacao.splice(indice, 1);
 
                 // Armazena a lista atualizada no navegador
-                localStorage.setItem('listaPessoas', JSON.stringify(listaPessoas));
+                localStorage.setItem('listaAcomodacao', JSON.stringify(listaAcomodacao));
 
                 // Recarrega a listagem
                 listar();
@@ -156,7 +153,7 @@ function eventosListagem() {
 
 function getIndiceListaPorId(id) {
     indiceProcurado = null;
-    listaPessoas.forEach(function (objeto, indice) {
+    listaAcomodacao.forEach(function (objeto, indice) {
         if (id == objeto.id) {
             indiceProcurado = indice;
         }
@@ -165,8 +162,8 @@ function getIndiceListaPorId(id) {
 }
 
 function getMaiorIdLista() {
-    if (listaPessoas.length > 0) {
-        return parseInt(listaPessoas[listaPessoas.length - 1].id);
+    if (listaAcomodacao.length > 0) {
+        return parseInt(listaAcomodacao[listaAcomodacao.length - 1].id);
     } else {
         return 0;
     }
@@ -175,10 +172,9 @@ function getMaiorIdLista() {
 function resetarForm() {
     document.querySelector('#bt-cancelar').style.display = 'none';
     document.querySelector('#campo-id').value = "";
-    document.querySelector('#campo-nome-completo').value = "";
-    document.querySelector('#campo-data-nascimento').value = "";
-    document.querySelector('#campo-documento').value = "";
-    document.querySelector('#campo-pais').value = "";
-    document.querySelector('#campo-estado').value = "";
-    document.querySelector('#campo-cidade').value = "";
+    document.querySelector('#campo-nome').value = "";
+    document.querySelector('#campo-valor').value = "";
+    document.querySelector('#campo-limite').value = "";
+    document.querySelector('#campo-descricao').value = "";
+    document.querySelector('#campo-func').value = "";
 }
