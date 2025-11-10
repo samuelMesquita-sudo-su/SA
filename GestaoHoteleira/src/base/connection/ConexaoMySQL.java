@@ -9,7 +9,7 @@ public class ConexaoMySQL {
     // Atributos de conexão
     private static final String url = "jdbc:mysql://localhost:3306/gestao_hoteleira";
     private static final String usuario = "root";
-    private static final String senha = "Heisenberg";
+    private static final String senha = "root";
     private static Connection conexao;
 
     // Cria ou pega a conexão
@@ -26,3 +26,4 @@ public class ConexaoMySQL {
     }
 
 }
+
